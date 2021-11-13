@@ -3,14 +3,18 @@ from tkinter import ttk
 import datetime as dt
 from tkinter.constants import GROOVE
 
+listaCodigos = [] #lista criada para salvar os dados
 
-#FUNÇÕES
+#FUNÇÕES PARA FAZER O PROGRAMA COLETAR OS DADOS
 def funcoesProgr():
-    nomeCliente = entry_nome.get()
+    nomeCliente = entry_nome.get() #(get)comando para coletar os dados inseridos no nome do cliente
     produto = cbSelecionarProdutos.get()
     quantidade = cbSelecionarQuantidade.get()
-    dataCodigo = dt.datetime.now()
-    dataCodigo = dataCodigo.strftime('%d/%m/%Y %H:%M')
+    dataCodigo = dt.datetime.now() #comando para gerar uma data do dia atual
+    dataCodigo = dataCodigo.strftime('%d/%m/%Y') #comando para formatar a data 
+    id = len(listaProdutos)+1 #comando para criar um id dos clientes
+    codigoId = f'ID ({id})' #comando para formatar o id
+    listaCodigos.append((codigoId, nomeCliente, produto, quantidade, dataCodigo)) #comando para adicionar os dados em uma lista
 
 
 #JANELA
@@ -45,12 +49,9 @@ cbSelecionarQuantidade = ttk.Combobox(values=listaQuant) #criar um combobox, que
 cbSelecionarQuantidade.grid(row=4, column=2, padx=10, pady=10, sticky='nswe', columnspan=2) 
 
 #BOTÃO PARA SALVAR O CÓDIGO
-botaoSalvarCompra = tk.Button(text='Salvar compra') #criar botão clicável
+botaoSalvarCompra = tk.Button(text='Salvar compra', command=funcoesProgr) #criar botão clicável e executar as funções criadas com o def
 botaoSalvarCompra.grid(row=5, column=0, padx=10, pady=10, sticky='nswe', columnspan=4)
 
-
-
-
-
-
 janela.mainloop() #comando usado para que a interface seja exibida
+
+print(listaCodigos) #mostrar os dados que foram salvos
