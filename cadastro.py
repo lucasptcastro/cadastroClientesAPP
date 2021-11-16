@@ -19,10 +19,12 @@ def funcoesProgr():
     quantidade = entry_Quantidade.get()
     frete = entry_frete.get()
     pagamento = cbSelecionarPagamento.get()
+    total = float(entry_total.get())
+    totalFormat = f'{total:.2f}'.replace('.',',')
     dataCodigo = dt.datetime.now() #comando para gerar uma data do dia atual
     dataCodigo = dataCodigo.strftime('%d/%m/%Y') #comando para formatar a data 
-    codigoId = f'ID ({contador})' #comando para formatar o id
-    listaCodigos.append((dataCodigo, codigoId, contato, nomeCliente, produto, sabor, quantidade, frete, pagamento)) #comando para adicionar os dados em uma lista
+    codigoId = f'{contador}' #comando para formatar o id
+    listaCodigos.append((dataCodigo, codigoId, contato, nomeCliente, produto, sabor, quantidade, frete, pagamento, totalFormat)) #comando para adicionar os dados em uma lista
 
 def salvarDados(): 
     contador = 0
@@ -107,12 +109,12 @@ cbSelecionarPagamento = ttk.Combobox(values=listaPagamento)
 cbSelecionarPagamento.grid(row=8, column=1, padx=10, pady=10, sticky='nswe', columnspan=5) 
 
 #TEXTO COM PREÇO
-label_preco = tk.Label(text='PREÇO R$', bg='#ffff00')
-label_preco.grid(row=9, column=0, padx=10, pady=10, sticky='nswe', columnspan=4)
+label_total = tk.Label(text='TOTAL R$', bg='#ffff00')
+label_total.grid(row=9, column=0, padx=10, pady=10, sticky='nswe', columnspan=4)
 
 #CAIXA PARA RECEBER O PREÇO
-entry_preco = tk.Entry() #criar caixa para receber o preço
-entry_preco.grid(row=9, column=4, padx=20, pady=10, sticky='nswe', columnspan=1)
+entry_total = tk.Entry() #criar caixa para receber o preço
+entry_total.grid(row=9, column=4, padx=20, pady=10, sticky='nswe', columnspan=1)
 
 #BOTÃO PARA SALVAR O CÓDIGO
 botaoSalvarCompra = tk.Button(text='SALVAR', command=funcoesProgr, bg='#ffff00', relief=RIDGE, border=3) #criar botão clicável e executar as funções criadas com o def
