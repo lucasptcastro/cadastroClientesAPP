@@ -41,7 +41,7 @@ def salvarDados():
 janela = tk.Tk() #criar uma janela
 janela.title('Cadastro de Compras SV') #título da janela
 janela.iconbitmap('images\icone.ico') #escolher o ícone da janela
-janela.geometry("300x420") #definir as dimensões da tela
+janela.geometry("265x420") #definir as dimensões da tela
 janela['bg'] = '#000000' #definir a cor de fundo da janela
 
 #TEXTO COM NOME DO PROGRAMA
@@ -50,7 +50,7 @@ label_SV.grid(row=1, column=0, padx=10, pady=10, sticky='nswe', columnspan=5)
 
 #TEXTO COM CONTATO
 label_contato = tk.Label(text='CONTATO:', bg='#ffff00') #criar uma label para o contato do cliente
-label_contato.grid(row=2, column=0, padx=10, pady=10, sticky='nswe', columnspan=2)
+label_contato.grid(row=2, column=0, padx=10, pady=10, sticky='we')
 
 #CAIXA PARA RECEBER O CONTATO
 entry_contato = tk.Entry()
@@ -88,7 +88,7 @@ label_quantidade.grid(row=6, column=0, padx=10, pady=10, sticky='nswe', columnsp
 
 #CAIXA PARA RECEBER A QUANTIDADE
 entry_Quantidade = tk.Entry() #criar uma caixa para receber a quantidade
-entry_Quantidade.grid(row=6, column=3, padx=30, pady=10, sticky='nswe', columnspan=2)
+entry_Quantidade.grid(row=6, column=3, padx=10, pady=10, sticky='nswe', columnspan=2)
 
 #TEXTO COM FRETE
 label_frete = tk.Label(text='FRETE:', bg='#ffff00')
@@ -114,7 +114,7 @@ label_total.grid(row=9, column=0, padx=10, pady=10, sticky='nswe', columnspan=4)
 
 #CAIXA PARA RECEBER O PREÇO
 entry_total = tk.Entry() #criar caixa para receber o preço
-entry_total.grid(row=9, column=4, padx=20, pady=10, sticky='nswe', columnspan=1)
+entry_total.grid(row=9, column=4, padx=10, pady=10, sticky='nswe', columnspan=1)
 
 #BOTÃO PARA SALVAR O CÓDIGO
 botaoSalvarCompra = tk.Button(text='SALVAR', command=funcoesProgr, bg='#ffff00', relief=RIDGE, border=3) #criar botão clicável e executar as funções criadas com o def
